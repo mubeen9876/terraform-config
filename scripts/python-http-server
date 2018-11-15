@@ -1,0 +1,6 @@
+#!/bin/bash
+
+mkdir -p ~/python-http-server
+git clone https://github.com/mubeen9876/python-http-server
+cd ~/python-http-server
+./http-server & disown
