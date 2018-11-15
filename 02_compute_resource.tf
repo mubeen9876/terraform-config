@@ -24,12 +24,16 @@ resource "google_compute_instance" "default" {
 		private_key = "${file("~/.ssh/id_rsa")}"
 	}
 	provisioner "remote-exec" {
-		scripts = [
-			"scripts/test1",
-			"scripts/test2"
+		inline = [
+			"sudo yum install -y git",
+			"sudo yum install -y java"
 		]
 	}
-	//provisioner "remote-exec" {
-	//	scripts = "${var.scripts}"
-	//}
+	provisioner "remote-exec" {
+		scripts = [
+			"scripts/test1",
+			"scripts/test2",
+			"scripts/install-jenkins"
+		]
+	}
 }
